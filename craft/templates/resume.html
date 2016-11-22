@@ -1,0 +1,89 @@
+  {% extends "_layout.html" %}
+
+  {% block title %} {{entry.title}} {% endblock %}
+
+  {% block header %}
+
+    <header class="container-fluid page {{ entry.title }}">
+
+      <div class="container">
+
+        <div class="row">
+          <h2 class="text-center">
+
+            {{ entry.title }}
+
+          </h2>
+        </div>
+
+      </div>
+
+    </header>
+
+  {% endblock %}
+
+  {% block content %}
+
+    <div class="container resume">
+
+      {% for block in entry.resume %}
+
+        {% if block.type == "heading1" %}
+
+          <div class="row">
+
+            <h1 class="text-center">{{ block.heading1Text }}</h1>
+
+          </div>
+
+        {% elseif block.type == "thumbnailImage" %}
+
+          {% set thumbnailImageTitle = "" %}
+          {% set thumbnailImageUrl = "" %}
+
+          {% for asset in block.image %}
+
+            {% set thumbnailImageTitle = asset.title %}
+            {% set thumbnailImageUrl = asset.url %}
+
+          {% endfor %}
+
+          <div class="row">
+
+            <div class="
+            resume-logo
+            col-xs-12 col-xs-offset-0
+            col-sm-1 col-sm-offset-1
+            col-md-1 col-md-offset-2
+            ">
+
+              <img class="img-responsive" src="{{ thumbnailImageUrl }}" alt="{{ thumbnailImageTitle }}" />
+
+            </div>
+
+        {% elseif block.type == "heading2" %}
+
+            <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-0 col-md-8 col-md-offset-0" >
+              <h2>{{ block.heading2Text }}</h2>
+
+        {% elseif block.type == "heading3" %}
+
+              <h3>{{ block.heading3Text }}</h3>
+            </div>
+          </div>
+
+        {% elseif block.type == "listItems" %}
+
+          <div class="row resume-list">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-9 col-md-offset-2">
+              {{ block.list }}
+            </div>
+          </div>
+
+        {% endif %}
+
+      {% endfor %}
+
+    </div>
+
+  {% endblock %}

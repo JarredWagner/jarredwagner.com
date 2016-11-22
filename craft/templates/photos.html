@@ -1,0 +1,51 @@
+{% extends "_layout.html" %}
+
+{% block title %}Photos{% endblock %}
+
+{% block header %}
+
+  <header class="container-fluid page {{ entry.title }}">
+
+    <div class="container">
+
+      <h2 class="text-center">
+
+        Photos
+
+      </h2>
+
+    </div>
+
+  </header>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="container">
+
+    <div id="photos">
+
+      {% for image in craft.assets.source('photos').limit('500') %}
+
+          <div class="col-sm-4 col-md-4 imgThumb">
+
+            <img src="{{ image.getUrl('sm') }}" alt="{{ image.filename }}" width="{{ image.width }}" height="{{ image.height }}" / >
+
+          </div>
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+{% endblock %}
+
+{% block scripts %}
+
+  <script src='{{siteUrl}}assets/js/jquery.scaleImages.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
+  <script src='{{siteUrl}}assets/style/js/photos.js'></script>
+
+{% endblock %}

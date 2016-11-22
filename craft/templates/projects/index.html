@@ -1,0 +1,67 @@
+{% extends "_layout.html" %}
+
+		{% block title %}Projects - Canton Ohio Web Developer and Photographer Jarred Wagner{% endblock %}
+
+    {% block header %}
+
+      <header class="container-fluid page">
+
+        <div class="container">
+
+          <h2 class="text-center">
+
+            Projects
+
+          </h2>
+
+        </div>
+
+      </header>
+
+    {% endblock %}
+
+    {% block content %}
+
+      <div class="container page">
+
+	      <div class="row auto-clear">
+
+					{% for entry in craft.entries.section('projects') %}
+
+		        <div class="col-sm-4 col-md-4 col-lg-4 thumbnail">
+
+			        <a href="{{ entry.url }}">
+
+                {% set featuredImageTitle = "" %}
+                {% set featuredImage1440Url = "" %}
+                {% set featuredImage800Url = "" %}
+
+                {% for asset in entry.featuredImage %}
+
+                  {% set featuredImageTitle = asset.title %}
+                  {% set featuredImage1440Url = asset.url %}
+                  {% set featuredImage800Url = asset.getUrl('sm') %}
+
+                {% endfor %}
+
+                <img
+                  class="img-responsive pull-right center-block"
+                  src="{{ featuredImage1440Url }}"
+                  alt="{{ featuredImageTitle }}"
+                  srcset="{{ featuredImage800Url }} 800w, {{ featuredImage1440Url }} 1440w"
+                  sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
+                >
+			        	<h2 class="text-center">{{ entry.title }}</h2>
+			        	<h4 class="text-center"><em>{{ entry.subtitle }}</em></h4>
+
+			        </a>
+
+		        </div>
+
+	        {% endfor %}
+
+	      </div>
+
+      </div>
+
+    {% endblock %}

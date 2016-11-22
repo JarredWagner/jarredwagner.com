@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{{siteUrl}}assets/style/css/style.css">
+
+    {% block styles %}
+    {% endblock %}
+
+  </head>
+
+  <body>
+
+		<div class="container">
+
+		    <nav class="nav">
+
+			  <div class="navbar-header">
+
+			    <a class="navbar-brand" href="{{siteUrl}}">
+			      <img src="{{siteUrl}}assets/style/img/jw.svg" alt="Jarred Wagner">
+			    </a>
+
+			    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+			      <span class="sr-only">Toggle navigation</span>
+			      <i class="fa fa-bars" aria-hidden="true"></i>
+			    </button>
+
+			  </div>
+
+			  <div class="collapse navbar-collapse">
+
+				{% import "_macros.html" as macros %}
+
+			    <ul class="nav navbar-nav navbar-right clearfix">
+
+			      <li {{ macros.is_active('about') }}>
+			      	<a href="{{siteUrl}}about">About</a>
+			      </li>
+            <li {{ macros.is_active('resume') }}>
+			      	<a href="{{siteUrl}}resume">Resume</a>
+			      </li>
+			      <li {{ macros.is_active('projects') }}>
+			      	<a href="{{siteUrl}}projects">Projects</a>
+			      </li>
+			      <li {{ macros.is_active('photos') }}>
+			      	<a href="{{siteUrl}}photos">Photos</a>
+			      </li>
+			      <li {{ macros.is_active('contact') }}>
+			      	<a href="{{siteUrl}}contact">Contact</a>
+			      </li>
+
+			    </ul>
+
+			  </div>
+
+			</nav>
+
+		</div>
+
+		{% block header %}
+		{% endblock %}
+
+		{% block content %}
+		{% endblock %}
+
+		<footer class="container-fluid
+			{% if craft.request.getSegment(1) %}
+				 page
+			{% endif %}
+		">
+      <div class="container">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+          <a href="https://github.com/JarredWagner">
+            <i class="fa fa-github" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://use.typekit.net/uye2qmt.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <script src="{{siteUrl}}assets/js/jquery.pixelCanvas.js"></script>
+    <script src="{{siteUrl}}assets/js/jw.js"></script>
+
+    {% block scripts %}
+    {% endblock %}
+
+   </body>
+
+ </html>

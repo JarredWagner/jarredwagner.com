@@ -1,0 +1,36 @@
+  {% extends "_layout.html" %}
+
+  {% block title %}scaleImages.js - Projects{% endblock %}
+
+  {% block styles %}
+    <style>
+      #demo-photos img {display: block; margin: 0rem auto 2rem auto;}
+      #demo-photos img:first-child {margin-top: 1rem;}
+    </style>
+  {% endblock %}
+
+  {% block content %}
+
+    <div id="demo-photos">
+
+      {% for image in craft.assets.source('devImages') %}
+        <img src="{{ image.getUrl() }}" alt="{{ image.filename }}" />
+      {% endfor %}
+
+    </div>
+
+  {% endblock %}
+
+  {% block scripts %}
+
+    <script src="{{siteUrl}}assets/js/jquery.scaleImages.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("#demo-photos img").scaleImages({scaling: 80, max: 2000});
+      });
+      $(window).resize(function(){
+        $("#demo-photos img").scaleImages({scaling: 80, max: 2000});
+      });
+    </script>
+
+  {% endblock %}

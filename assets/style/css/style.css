@@ -1,0 +1,486 @@
+/*Styles*/
+
+  html, body {font-size: 18px; text-rendering: optimizeLegibility;}
+  body {
+    font-family: "soleil", sans-serif;
+    font-weight: 300;
+    color: #333;
+  }
+
+/*Typography*/
+
+  h1, h2, h3, h4, h5, h6 {margin: 0.5rem; padding: 0;}
+  h1 {font-size: 2rem; font-weight: 700;}
+  h2 {font-size: 1.5rem;}
+  h3 {font-size: 1.25rem; font-weight: 300;}
+  h4 {font-size: 1rem;}
+  h5 {font-size: 0.75rem;}
+  h6 {font-size: 0.5rem;}
+  strong {font-weight: 600;}
+  ::selection {
+    background: rgba(117,89,140,1);
+    color: #fff;
+  }
+
+  a {color: #333; font-weight: 700; transition: color 0.5s ease}
+  a:hover {color: rgba(117,89,140,1); text-decoration: none;}
+
+/*Nav*/
+
+  nav {padding-top: 1rem !important; padding-bottom: 1rem !important;}
+  nav a {color: #444; text-transform: uppercase; transition: background-color 0.5s ease; font-weight: 300;}
+  .navbar-brand {padding-top: 0; padding-bottom: 0;}
+  .active a, .navbar-nav > li.active a:hover {background: #333; color: #fff; font-weight: 600}
+  .navbar-nav > li > a:hover {color: #333;}
+  .navbar-nav > li > a, .navbar-toggle {margin: 0; padding: 1rem 1rem 1rem;}
+  .navbar-nav > li {font-size: 0.9rem;}
+
+  .navbar-brand img { height: 3.1rem;}
+  .fa {font-size: 1.5rem;}
+
+/*Headers*/
+
+  header {
+    color: #fff;
+    margin: 0; padding: 0;
+  }
+
+  header.home {
+    background: url(../img/darken.png), url(../img/jarred-md.jpg);
+    background-size: auto, cover;
+    background-position: 0 0, 50% 0 ;
+    background-repeat: repeat, no-repeat;
+
+    height: calc(100vh - 49px - 8.5rem);
+    display: flex;
+    align-items: flex-end; justify-content: center;
+  }
+
+  header.home > * {text-shadow: 1px 1px 1px #666;}
+  header.home h1 {font-weight: 700; margin-top: 0; margin-bottom: 0.33rem; padding: 0;}
+  header.home h2 {font-weight: 700; margin-bottom: 0.5rem;}
+  header.home h4:nth-child(2) {margin-bottom: 0.2rem;}
+  header.home h2:last-child, header.home h3:last-child, header h4:last-child, header h5:last-child {margin-top: 0.5rem; margin-bottom: 5rem; line-height: 1.8rem;}
+  h2:last-child {margin-top: 0;}
+
+  .home-text {
+    opacity: 0;
+  }
+
+  header.page {
+    background: #333;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  header.page h2 {margin-bottom: 0rem;}
+
+  header.page h2 {
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+
+  header.project-entry {background: #eee; color: #333; margin-bottom: 2rem;}
+  header.project-entry h1 {font-weight: 700;}
+  header.project-entry img {width: calc(100% - 15px); border: solid 0.5rem #ddd;}
+  header div.project-title {display: flex; align-items: center; padding-top: 2rem; padding-bottom: 2rem;}
+  /*.project-title div:first-child {padding-left: 0; padding-right: 0; margin-right: 0px;}*/
+  .project-title h1, .project-title h3 {text-shadow: 1px 1px 1px #666;}
+
+/*Resume*/
+
+  .resume h1 {
+  	font-size: 2.2rem;
+  	line-height: 2.3rem;
+  	font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    /*margin-top: 2rem; */
+  }
+
+  .resume > *:nth-child(7) h1 {
+    margin: 1.33rem 0 2rem 0;
+  }
+
+  /*Title*/
+
+  .resume img, .resume h2, .resume h3 {position: relative; left: 12px;}
+  .resume h2, .resume h3 {position: relative; left: 1rem;}
+  .resume img {width: 5.5rem; margin-bottom: 1rem; border: solid 0.2rem #ddd;}
+  .resume-logo {padding: 0;}
+
+  .resume h2 {
+  	font-size: 1.4rem;
+  	line-height: 1.5rem;
+  	font-weight: 600;
+  	padding: 0;
+  	text-align: left;
+    text-transform: uppercase;
+    margin: 1rem 0 0.33rem 0;
+  }
+
+  /*Company*/
+
+  .resume h3 {
+  	font-size: 1.1rem;
+  	line-height: 1.3rem;
+  	font-weight: 300;
+  	font-style: italic;
+  	text-align: left;
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
+  }
+
+  /*Lists*/
+
+  .resume-list {
+    margin-bottom: 2rem;
+  }
+
+  .resume ul {
+  	width: 100%;
+  	padding: 0 0 0 1.3rem;
+  	text-align: left;
+  	list-style-position: inside;
+  	list-style: disc;
+  	font-weight: 200;
+    margin: 1rem 0 1rem 0;
+  }
+
+  .resume li {
+  	font-size: 1.1rem;
+  	line-height: 1.7rem;
+  	margin: 0 0 0.33rem 0;
+  }
+
+  .resume li a {
+  	font-weight: 700;
+  }
+
+  .resume > *:last-child ul {
+      margin: 0;
+    	padding: 0;
+    	list-style: none;
+  }
+
+  .resume ul li:last-child {
+  	margin: 0rem;
+  }
+
+/*Projects*/
+
+  .paragraph {padding-right: 1rem; margin-bottom: 1rem;}
+  .project-body img {margin-bottom: 2rem;}
+
+  .demo {
+    margin-bottom: 1rem;
+    padding: 0;
+    padding-right: 0.5rem;
+  }
+  .git {
+    margin-bottom: 1rem;
+    padding: 0;
+    padding-left: 0.5rem;
+  }
+  .demo button {
+    background: #5b9060;
+    width: 100%;
+    transition: background-color 0.5s ease;
+    border-radius: 0;
+    border: none;
+    margin: 0 auto;
+    padding: 1rem 0 1rem;
+  }
+  .git button {
+    background: #4078c0;
+    width: 100%;
+    transition: background-color 0.5s ease;
+    border-radius: 0;
+    border: none;
+    margin: 0 auto;
+    padding: 1rem 0 1rem;
+  }
+  .demo i.fa {font-size: 0.9rem; margin-right: 0.5rem;}
+  .git i.fa {font-size: 1.1rem; margin-right: 0.5rem;}
+
+  .demo a button, .git a button {color: #fff; font-size: 1rem; font-weight: 300; text-transform: uppercase;}
+  .demo button:hover {background: #3b8d43;}
+  .git button:hover {background: #3274c9;}
+
+  .sidebar {background: #eee; color: #333; padding: 2rem; text-align: right;}
+  .sidebar ul {list-style: none; margin: 0rem; padding: 0.33rem;}
+  .sidebar li {font-size: 1.1rem; padding: 0.2rem;}
+  /*.sidebar li {font-size: 1.1rem; padding: 0.5rem; background: #ddd; margin: 0.5rem 0;}*/
+
+/*Page?*/
+
+  .page h1, .page h2 {font-weight: 700;}
+  .page h1 {margin-top: 0; margin-bottom: 2rem;}
+
+  .page .thumbnail {border: none; margin: 0 0 0rem 0; padding: 1rem; transition: background-color 0.5s ease;}
+  .page .thumbnail img {margin-bottom: 1rem;}
+  .page .thumbnail h4 {width: 66%; margin: auto;}
+  .page .thumbnail:hover {background-color: #efefef;}
+  .page a {color: #333; transition: color 0.5s ease; text-decoration: none;}
+  .page a:hover, .page a:active, .page a:visited {text-decoration: none;}
+
+  .page img {border: solid 7px #ddd;}
+  .page p {text-indent: 0rem; font-size: 1.2rem; line-height: 2rem; margin-bottom: 1rem;}
+
+/*Photos*/
+
+  #photos .imgThumb {
+    display: flex;
+    align-items: center;
+    height: 14rem;
+    padding: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .imgThumb {height: 10rem !important;}
+  }
+
+  @media (max-height: 420px) {
+    .imgThumb {height: 17rem;}
+  }
+
+  #photos img {
+    border: solid 7px #eee;
+    cursor: pointer;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    margin: auto;
+    visibility: hidden;
+  }
+
+/*Contact*/
+
+  .form-control {
+    font-size: 1rem;
+    border-radius: 0;
+    padding: 1.33rem 0.66rem;
+  }
+  textarea.form-control  {
+    padding: 0.66rem;
+    margin-bottom: 1rem;
+  }
+  .form-control:focus {
+    border: solid 1px #666;
+    outline: 0;
+    box-shadow: none;
+  }
+  input.btn, input.btn:active {
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    padding: 0.66rem 1.33rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: background-color 0.5s ease;
+  }
+  input.btn:hover {
+    background: #444;
+    color: #fff;
+  }
+  #contact-form label {font-weight: 500;}
+  #contact-form h4 {margin-bottom: 1rem;}
+  #contact-form h4 i {font-size: 1rem; margin-right: 0.5rem;}
+  #contactSpinner {display: none; font-size: 1.5rem; margin-top: 0.7rem; margin-right: 1rem;}
+
+  #contactSuccess {
+    background: #5b9060; color: #fff;
+    width: 100vw;
+    height: 100vh;
+    position: fixed; top: 0; left: 0;
+    z-index: 777;
+    visibility: hidden; opacity: 0;
+    display: flex;
+    align-items: center; justify-content: center; flex-direction: column;
+  }
+  #contactSuccess i {font-size: 2rem; margin-right: 0.66rem;}
+
+/*Footer*/
+
+  footer {
+    font-size: 1.5rem;
+    background: #fff; color: #333;
+    padding: 2rem;
+  }
+  footer a {color: #333;}
+  footer i {transition: color 0.5s ease; margin: 0 1rem;}
+  footer a:hover {text-decoration: none;}
+  footer a:hover .fa-facebook-official {color: #3B5998;}
+  footer a:hover .fa-github {color: #666;}
+  footer a:hover .fa-instagram {color: #517fa4;}
+  footer a:hover .fa-twitter {color: #00aced;}
+
+  footer.page {
+    margin-top: 2rem;
+    background: #333; color: #fff;
+  }
+  footer.page a {color: #fff;}
+  footer.page a:hover .fa-github {color: #ddd;}
+
+  footer.demo {margin-top: 0; height: 6rem;}
+  footer.demo a {visibility: hidden;}
+
+/*Media Queries*/
+
+  /*Phone*/
+
+    @media (max-width: 767px) {
+      nav {padding: 1rem 1rem 0.5rem !important;}
+      .navbar-brand {padding-bottom: 0;}
+      .navbar-nav > li {margin: 0.8rem; background: #eee;}
+      .navbar-collapse li {text-align: center;}
+      .navbar-nav {
+        margin: 7px -15px 1rem -15px;
+      }
+      header {
+        background: url(img/darken.png), url(img/jarred-xs.jpg);
+        background-size: auto, cover;
+        background-position: 0 0, 50% 0 ;
+        background-repeat: repeat, no-repeat;
+      }
+      header.home {height: calc(100vh - 75px - 28px - 18px);}
+      header.home h2 {font-size: 1.25rem;}
+      header.home h3 {font-size: 1rem;}
+      header.home h3:last-child, header.home h4:last-child {font-size: 1rem; margin-bottom: 4rem;}
+      header.page {height: 8rem;}
+      header.project-entry {height: 100%;}
+      header.project-entry img {margin-bottom: 1rem;}
+      header div.project-title {display: block;}
+
+      .resume h2 {font-size: 1.25rem;}
+      .resume h3, .resume li {font-size: 1.00rem;}
+      .resume img {width: 33%; height: auto; margin: 0 auto 1rem auto;}
+      .resume img, .resume h2, .resume h3 {position: static;}
+      .page p {font-size: 1.1rem; text-indent: 0; padding-left: 0rem; padding-right: 0rem;}
+      .container {padding-left: 1rem !important; padding-right: 1rem !important;}
+      header.home .container {padding-left: 0rem !important; padding-right: 0rem !important;}
+      .resume .row div {padding: 0;}
+      .paragraph {padding-right: 0rem;}
+      input.btn {margin-bottom: 2rem;}
+      .demo, .git {padding: 0;}
+      header.project-entry img, .git.pull-right {float: none !important;}
+      .demo, .git, .sidebar {margin: 0 1rem;}
+      .demo, .git {margin-bottom: 1rem;}
+      footer.page {
+        margin-top: 2rem;
+      }
+      footer.demo {height: 1rem;}
+    }
+
+  /*Phone Landscape*/
+
+    @media (max-height: 420px) {
+      header.home { height: calc(100vh - 74px - 2.5rem);}
+      header.home h2:last-child, header.home h3:last-child, header.home h4:last-child {margin-bottom: 1rem;}
+      .project-title, .page .thumbnail {width: 66%; margin: auto;}
+      .resume img {display: none;}
+      .resume h2 {margin: 0rem 0 0.33rem 0;}
+      footer.demo footer.demo {height: 1rem;}
+      .page p {font-size: 1.1rem;}
+    }
+
+  /*Tablet*/
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      header.home {
+        height: calc(100vh - 49px - 8.5rem - 30px);
+      }
+      header.page {
+        height: 7rem;
+      }
+      .resume-logo {width: 5rem;}
+      .page .thumbnail h4 {width: 100%; margin: auto;}
+      /*.resume h2, .resume h3 {position: relative; left: -9px;}*/
+      /*.sidebar {margin: 0 0.66rem;}*/
+      .demo, .git {padding: 0; margin-left: 0; margin-right: 0;}
+      /*.git.pull-right {float: none !important;}*/
+      footer.demo {margin-left: 0; margin-right: 0; height: 6rem}
+      footer.page {
+        margin-top: 1.5rem;
+      }
+    }
+
+  /*Tablet Landscape*/
+
+    @media (min-width: 992px) and (max-width: 1024px) {
+      .demo {padding-right: 0.5rem;}
+      .git {padding-left: 0.5rem;}
+      .page .thumbnail h4 {width: 75%; margin: auto;}
+    }
+
+  /*Tablet Portrait Hamburger*/
+
+    @media (max-width: 991px) {
+      .navbar-header {
+          float: none;
+      }
+      .navbar-left,.navbar-right {
+          float: none !important;
+      }
+      .navbar-toggle {
+          display: block;
+      }
+      .navbar-collapse.collapse {
+          display: none!important;
+      }
+      .navbar-nav {
+          float: none!important;
+
+      }
+      .navbar-nav>li {
+          float: none;
+      }
+
+      .collapse.in{
+          display:block !important;
+      }
+
+      nav {padding: 1rem 1rem 0.5rem !important;}
+      .navbar-brand {padding-bottom: 0;}
+      .navbar-nav > li {margin: 0.8rem; background: #eee;}
+      .navbar-collapse li {text-align: center;}
+      .navbar-nav {
+        margin: 7px -15px 1rem -15px;
+      }
+    }
+
+/*Auto Clearing*/
+
+  @media (min-width:1200px){
+      .auto-clear .col-lg-1:nth-child(12n+1){clear:left;}
+      .auto-clear .col-lg-2:nth-child(6n+1){clear:left;}
+      .auto-clear .col-lg-3:nth-child(4n+1){clear:left;}
+      .auto-clear .col-lg-4:nth-child(3n+1){clear:left;}
+      .auto-clear .col-lg-6:nth-child(odd){clear:left;}
+  }
+  @media (min-width:992px) and (max-width:1199px){
+      .auto-clear .col-md-1:nth-child(12n+1){clear:left;}
+      .auto-clear .col-md-2:nth-child(6n+1){clear:left;}
+      .auto-clear .col-md-3:nth-child(4n+1){clear:left;}
+      .auto-clear .col-md-4:nth-child(3n+1){clear:left;}
+      .auto-clear .col-md-6:nth-child(odd){clear:left;}
+  }
+  @media (min-width:768px) and (max-width:991px){
+      .auto-clear .col-sm-1:nth-child(12n+1){clear:left;}
+      .auto-clear .col-sm-2:nth-child(6n+1){clear:left;}
+      .auto-clear .col-sm-3:nth-child(4n+1){clear:left;}
+      .auto-clear .col-sm-4:nth-child(3n+1){clear:left;}
+      .auto-clear .col-sm-6:nth-child(odd){clear:left;}
+  }
+  @media (max-width:767px){
+      .auto-clear .col-xs-1:nth-child(12n+1){clear:left;}
+      .auto-clear .col-xs-2:nth-child(6n+1){clear:left;}
+      .auto-clear .col-xs-3:nth-child(4n+1){clear:left;}
+      .auto-clear .col-xs-4:nth-child(3n+1){clear:left;}
+      .auto-clear .col-xs-6:nth-child(odd){clear:left;}
+  }

@@ -1,0 +1,92 @@
+  {% extends "_layout.html" %}
+
+  {% block title %}Inlux Slideshow - Projects{% endblock %}
+
+  {% block styles %}
+
+    <style>
+			#demo-photos {
+				display: none;
+				background: #eee;
+			}
+			#demo-photos img {
+				margin-right: 2rem;
+				border:solid 10px #fff;
+        visibility: visible;
+			}
+			.pBtn .fa, .nBtn .fa {
+				font-size: 8rem
+			}
+			.pBtn, .nBtn {
+				opacity: 0.33;
+			  transition: opacity 0.3s linear;
+			  margin: 4rem;
+			}
+			.pBtn:hover, .nBtn:hover {
+				opacity: 1;
+			}
+			.start, .stop {
+				position:absolute;
+				left:2.66rem;
+				bottom: 1.5rem;
+			}
+			.progress {
+				width: 100px;
+				height: 5px;
+				position: absolute;
+				left: 2rem;
+				bottom: 1rem;
+				opacity: 0.33;
+			}
+			.imageCount {
+				font-size: 1.33rem;
+				font-weight: 500;
+				position: absolute;
+				right: 2.66rem;
+				bottom: 1.5rem;
+			}
+			.imageCount span {
+				font-weight: 700;
+			}
+			.pBtn, .nBtn {color: #333;}
+			.start, .stop, .imageCount {color: #999;}
+			.progress {background-color: #333;}
+			footer {display:none;}
+
+			@media (max-width: 767px) {
+				.start, .stop {
+					bottom: 1rem;
+					left:2rem;
+				}
+				.imageCount {
+					bottom: 1rem;
+					right: 1.8rem;
+				}
+				.progress {
+					bottom: 0.5rem;
+				}
+			}
+    </style>
+
+  {% endblock %}
+
+  {% block content %}
+
+		<div id="demo-photos">
+
+			{% for image in craft.assets.source('devImages').limit('500') %}
+        <img src="{{ image.url }}" alt="{{ image.filename }}" width="{{ image.width }}" height="{{ image.height }}" / >
+      {% endfor %}
+
+		</div>
+
+  {% endblock %}
+
+  {% block scripts %}
+
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
+
+    <script src="{{siteUrl}}assets/js/jquery.inluxSlideshow.js"></script>
+
+  {% endblock %}
