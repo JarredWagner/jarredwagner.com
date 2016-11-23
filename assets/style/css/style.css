@@ -44,13 +44,12 @@
   header.page {
     background: #333;
     color: #fff;
-    height: 5rem;
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
+    padding: 2rem;
   }
   header.page h2 {
-    margin-bottom: 0rem;
     text-transform: uppercase;
     font-weight: 500;
   }
@@ -364,7 +363,7 @@
       .resume img, .resume h2, .resume h3 {position: static;}
       .resume .row div {padding: 0;}
 
-      header.page {height: 4rem;}
+      header.page {padding: 1rem;}
       header.project-entry {height: 100%;}
       header.project-entry img {margin-bottom: 1rem;}
       header div.project-title {display: block;}
