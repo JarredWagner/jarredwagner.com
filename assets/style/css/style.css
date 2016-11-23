@@ -1,4 +1,4 @@
-/*Styles*/
+/*Typography*/
 
   html, body {font-size: 18px; text-rendering: optimizeLegibility;}
   body {
@@ -6,9 +6,6 @@
     font-weight: 300;
     color: #333;
   }
-
-/*Typography*/
-
   h1, h2, h3, h4, h5, h6 {margin: 0.5rem; padding: 0;}
   h1 {font-size: 2rem; font-weight: 700;}
   h2 {font-size: 1.5rem;}
@@ -44,60 +41,48 @@
     color: #fff;
     margin: 0; padding: 0;
   }
+  header.page {
+    background: #333;
+    color: #fff;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  header.page h2 {
+    margin-bottom: 0rem;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+/*Home*/
 
   header.home {
     background: url(../img/darken.png), url(../img/jarred-md.jpg);
     background-size: auto, cover;
-    background-position: 0 0, 50% 0 ;
+    background-position: 0 0, 50% 0;
     background-repeat: repeat, no-repeat;
-
     height: calc(100vh - 49px - 8.5rem);
     display: flex;
     align-items: flex-end; justify-content: center;
   }
 
   header.home > * {text-shadow: 1px 1px 1px #666;}
-  header.home h1 {font-weight: 700; margin-top: 0; margin-bottom: 0.33rem; padding: 0;}
   header.home h2 {font-weight: 700; margin-bottom: 0.5rem;}
-  header.home h4:nth-child(2) {margin-bottom: 0.2rem;}
-  header.home h2:last-child, header.home h3:last-child, header h4:last-child, header h5:last-child {margin-top: 0.5rem; margin-bottom: 5rem; line-height: 1.8rem;}
-  h2:last-child {margin-top: 0;}
+  header.home h2:last-child {margin-top: 0.5rem; margin-bottom: 4rem; line-height: 1.8rem;}
 
   .home-text {
     opacity: 0;
   }
 
-  header.page {
-    background: #333;
-    height: 6rem;
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
-  }
-
-  header.page h2 {margin-bottom: 0rem;}
-
-  header.page h2 {
-    text-transform: uppercase;
-    font-weight: 300;
-  }
-
-  header.project-entry {background: #eee; color: #333; margin-bottom: 2rem;}
-  header.project-entry h1 {font-weight: 700;}
-  header.project-entry img {width: calc(100% - 15px); border: solid 0.5rem #ddd;}
-  header div.project-title {display: flex; align-items: center; padding-top: 2rem; padding-bottom: 2rem;}
-  /*.project-title div:first-child {padding-left: 0; padding-right: 0; margin-right: 0px;}*/
-  .project-title h1, .project-title h3 {text-shadow: 1px 1px 1px #666;}
-
 /*Resume*/
 
   .resume h1 {
-  	font-size: 2.2rem;
-  	line-height: 2.3rem;
+  	font-size: 2rem;
+  	line-height: 2rem;
   	font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 2rem;
-    /*margin-top: 2rem; */
+    margin-bottom: 2.2rem;
   }
 
   .resume > *:nth-child(7) h1 {
@@ -139,6 +124,10 @@
     margin-bottom: 2rem;
   }
 
+  .resume-list:last-child {
+    margin-bottom: 0rem;
+  }
+
   .resume ul {
   	width: 100%;
   	padding: 0 0 0 1.3rem;
@@ -170,6 +159,26 @@
   }
 
 /*Projects*/
+
+  header.project-entry {background: #eee; color: #333; margin-bottom: 2rem;}
+  header.project-entry h1 {font-weight: 700;}
+  header.project-entry img {width: calc(100% - 15px); border: solid 0.5rem #ddd;}
+  header div.project-title {display: flex; align-items: center; padding-top: 2rem; padding-bottom: 2rem;}
+  .project-title h1, .project-title h3 {text-shadow: 1px 1px 1px #666;}
+
+  .page h1, .page h2 {font-weight: 700;}
+  .page h1 {margin-top: 0; margin-bottom: 2rem;}
+
+  .page .thumbnail {border: none; margin: 0 0 0rem 0; padding: 1rem; transition: background-color 0.5s ease;}
+  .page .thumbnail img {margin-bottom: 1rem;}
+  .page .thumbnail h4 {width: 66%; margin: auto;}
+  .page .thumbnail:hover {background-color: #efefef;}
+
+  .page a {color: #333; transition: color 0.5s ease; text-decoration: none;}
+  .page a:hover, .page a:active, .page a:visited {text-decoration: none;}
+
+  .page img {border: solid 7px #ddd;}
+  .page p {text-indent: 0rem; font-size: 1.1rem; line-height: 2rem; margin-bottom: 1rem;}
 
   .paragraph {padding-right: 1rem; margin-bottom: 1rem;}
   .project-body img {margin-bottom: 2rem;}
@@ -212,22 +221,6 @@
   .sidebar {background: #eee; color: #333; padding: 2rem; text-align: right;}
   .sidebar ul {list-style: none; margin: 0rem; padding: 0.33rem;}
   .sidebar li {font-size: 1.1rem; padding: 0.2rem;}
-  /*.sidebar li {font-size: 1.1rem; padding: 0.5rem; background: #ddd; margin: 0.5rem 0;}*/
-
-/*Page?*/
-
-  .page h1, .page h2 {font-weight: 700;}
-  .page h1 {margin-top: 0; margin-bottom: 2rem;}
-
-  .page .thumbnail {border: none; margin: 0 0 0rem 0; padding: 1rem; transition: background-color 0.5s ease;}
-  .page .thumbnail img {margin-bottom: 1rem;}
-  .page .thumbnail h4 {width: 66%; margin: auto;}
-  .page .thumbnail:hover {background-color: #efefef;}
-  .page a {color: #333; transition: color 0.5s ease; text-decoration: none;}
-  .page a:hover, .page a:active, .page a:visited {text-decoration: none;}
-
-  .page img {border: solid 7px #ddd;}
-  .page p {text-indent: 0rem; font-size: 1.2rem; line-height: 2rem; margin-bottom: 1rem;}
 
 /*Photos*/
 
@@ -323,6 +316,7 @@
   footer.page {
     margin-top: 2rem;
     background: #333; color: #fff;
+    padding: 1.3rem;
   }
   footer.page a {color: #fff;}
   footer.page a:hover .fa-github {color: #ddd;}
@@ -330,11 +324,20 @@
   footer.demo {margin-top: 0; height: 6rem;}
   footer.demo a {visibility: hidden;}
 
+  footer.pixel {
+    background: #303030;
+    color: #fff;
+    padding: 3rem;
+  }
+
 /*Media Queries*/
 
   /*Phone*/
 
     @media (max-width: 767px) {
+
+      .container {padding-left: 1rem !important; padding-right: 1rem !important;}
+
       nav {padding: 1rem 1rem 0.5rem !important;}
       .navbar-brand {padding-bottom: 0;}
       .navbar-nav > li {margin: 0.8rem; background: #eee;}
@@ -342,6 +345,7 @@
       .navbar-nav {
         margin: 7px -15px 1rem -15px;
       }
+
       header {
         background: url(img/darken.png), url(img/jarred-xs.jpg);
         background-size: auto, cover;
@@ -351,71 +355,77 @@
       header.home {height: calc(100vh - 75px - 28px - 18px);}
       header.home h2 {font-size: 1.25rem;}
       header.home h3 {font-size: 1rem;}
-      header.home h3:last-child, header.home h4:last-child {font-size: 1rem; margin-bottom: 4rem;}
-      header.page {height: 8rem;}
-      header.project-entry {height: 100%;}
-      header.project-entry img {margin-bottom: 1rem;}
-      header div.project-title {display: block;}
+      header.home h3:last-child {font-size: 1rem; margin-bottom: 4rem;}
+      header.home .container {padding-left: 0rem !important; padding-right: 0rem !important;}
 
       .resume h2 {font-size: 1.25rem;}
       .resume h3, .resume li {font-size: 1.00rem;}
       .resume img {width: 33%; height: auto; margin: 0 auto 1rem auto;}
       .resume img, .resume h2, .resume h3 {position: static;}
-      .page p {font-size: 1.1rem; text-indent: 0; padding-left: 0rem; padding-right: 0rem;}
-      .container {padding-left: 1rem !important; padding-right: 1rem !important;}
-      header.home .container {padding-left: 0rem !important; padding-right: 0rem !important;}
       .resume .row div {padding: 0;}
+
+      header.page {height: 4rem;}
+      header.project-entry {height: 100%;}
+      header.project-entry img {margin-bottom: 1rem;}
+      header div.project-title {display: block;}
+      .page p {font-size: 1.1rem; text-indent: 0; padding-left: 0rem; padding-right: 0rem;}
       .paragraph {padding-right: 0rem;}
-      input.btn {margin-bottom: 2rem;}
       .demo, .git {padding: 0;}
       header.project-entry img, .git.pull-right {float: none !important;}
       .demo, .git, .sidebar {margin: 0 1rem;}
       .demo, .git {margin-bottom: 1rem;}
+
+      input.btn {margin-bottom: 2rem;}
+
       footer.page {
         margin-top: 2rem;
       }
       footer.demo {height: 1rem;}
+
     }
 
   /*Phone Landscape*/
 
     @media (max-height: 420px) {
+
       header.home { height: calc(100vh - 74px - 2.5rem);}
       header.home h2:last-child, header.home h3:last-child, header.home h4:last-child {margin-bottom: 1rem;}
-      .project-title, .page .thumbnail {width: 66%; margin: auto;}
+
       .resume img {display: none;}
       .resume h2 {margin: 0rem 0 0.33rem 0;}
-      footer.demo footer.demo {height: 1rem;}
+
       .page p {font-size: 1.1rem;}
+      .project-title, .page .thumbnail {width: 66%; margin: auto;}
+
+      footer.demo footer.demo {height: 1rem;}
+
     }
 
   /*Tablet*/
 
     @media (min-width: 768px) and (max-width: 1024px) {
+
       header.home {
         height: calc(100vh - 49px - 8.5rem - 30px);
       }
-      header.page {
-        height: 7rem;
-      }
+
       .resume-logo {width: 5rem;}
+
       .page .thumbnail h4 {width: 100%; margin: auto;}
-      /*.resume h2, .resume h3 {position: relative; left: -9px;}*/
-      /*.sidebar {margin: 0 0.66rem;}*/
       .demo, .git {padding: 0; margin-left: 0; margin-right: 0;}
-      /*.git.pull-right {float: none !important;}*/
+
       footer.demo {margin-left: 0; margin-right: 0; height: 6rem}
-      footer.page {
-        margin-top: 1.5rem;
-      }
+      footer.page {margin-top: 1.5rem;}
+      footer.foot {padding: 3.2rem;}
+
     }
 
   /*Tablet Landscape*/
 
     @media (min-width: 992px) and (max-width: 1024px) {
+      .page .thumbnail h4 {width: 75%; margin: auto;}
       .demo {padding-right: 0.5rem;}
       .git {padding-left: 0.5rem;}
-      .page .thumbnail h4 {width: 75%; margin: auto;}
     }
 
   /*Tablet Portrait Hamburger*/
@@ -440,11 +450,9 @@
       .navbar-nav>li {
           float: none;
       }
-
       .collapse.in{
           display:block !important;
       }
-
       nav {padding: 1rem 1rem 0.5rem !important;}
       .navbar-brand {padding-bottom: 0;}
       .navbar-nav > li {margin: 0.8rem; background: #eee;}

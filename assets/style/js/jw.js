@@ -32,17 +32,17 @@ $(window).load(function(){
 
 function pixelate() {
   $('header.project-entry').pixelCanvas({
-    divisor: 20,
-    opacity: 0.13
+    divisor: 6,
+    opacity: 0.15
   });
-  // $('header.page').pixelCanvas({
-  //   divisor: 30,
-  //   opacity: 0.15
-  // });
-  // $('footer.page').pixelCanvas({
-  //   divisor: 45,
-  //   opacity: 0.15
-  // });
+  $('header.page').pixelCanvas({
+    divisor: 3,
+    opacity: 0.15
+  });
+  $('footer.pixel').pixelCanvas({
+    divisor: 4,
+    opacity: 0.15
+  });
 }
 
 // Pixel Canvas

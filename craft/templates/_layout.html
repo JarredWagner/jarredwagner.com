@@ -44,9 +44,9 @@
 
 			    <ul class="nav navbar-nav navbar-right clearfix">
 
-			      <li {{ macros.is_active('about') }}>
+			      {# <li {{ macros.is_active('about') }}>
 			      	<a href="{{siteUrl}}about">About</a>
-			      </li>
+			      </li> #}
             <li {{ macros.is_active('resume') }}>
 			      	<a href="{{siteUrl}}resume">Resume</a>
 			      </li>
@@ -88,6 +88,10 @@
       </div>
     </footer>
 
+    {% if craft.request.getSegment(1) %}
+    <footer class="container-fluid pixel"></footer>
+    {% endif %}
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
@@ -95,7 +99,7 @@
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
     <script src="{{siteUrl}}assets/js/jquery.pixelCanvas.js"></script>
-    <script src="{{siteUrl}}assets/js/jw.js"></script>
+    <script src="{{siteUrl}}assets/style/js/jw.js"></script>
 
     {% block scripts %}
     {% endblock %}

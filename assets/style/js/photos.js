@@ -15,11 +15,14 @@
   var btnBgColor = 'transparent';
   var btnColor = '#666';
   var btnHoverColor = '#999';
-  var btnMarginTB = '0.33rem';
+  var btnMarginTB = '0.66rem';
   var btnMarginLR = '0.66rem';
   var slideTime = 2000;
   var listScaling = 80;
-  var modalScaling = 100;
+  var modalScaling;
+  var mdModalScaling = 80;
+  var smModalScaling = 90;
+  var xsModalScaling = 100;
   var max = 2000;
   var placeHolder = 'http://jw:8888/assets/images/placeholder.jpg';
 
@@ -87,8 +90,8 @@
   function placeBtns() {
     if ($(window).width() <= 1024) {
       $(prevBtn+', '+nextBtn).css('visibility', 'hidden');
-      btnMarginTB = '-7px';
-      btnMarginLR = '-5px';
+      btnMarginTB = '0';
+      btnMarginLR = '3px';
     } else {
       $(prevBtn+', '+nextBtn).css('visibility', 'visible');
     }
@@ -99,9 +102,17 @@
     $(nextBtn).css('top', btnTop).css('right', btnMarginLR);
   }
 
-//Thumbnail Click function
+  function scaleModal() {
+    if ($(window).width() > 1024) {
+      modalScaling = mdModalScaling;
+    } else if ($(window).width() > 768) {
+      modalScaling = smModalScaling;
+    } else {
+      modalScaling = xsModalScaling;
+    }
+  }
 
-  function thumbClick() {}
+//Thumbnail Click function
 
   $(img).on('click', function() {
 
@@ -137,7 +148,7 @@
       $(modalImg).attr('src', modalSrc);
 
       //Scale Image to Viewport
-
+      scaleModal();
       $(modalImg).load(function(){
         $(this).scaleImages({lazy: true, scaling: modalScaling, max: max});
         $(this).css('visibility', 'visible');
@@ -401,12 +412,16 @@
 //Handle Resizing and Orientation Changes
 
   $(window).bind('resize', function() {
+    console.log(modalScaling);
+    scaleModal();
+    console.log(modalScaling);
     $(modalImg).scaleImages({lazy: true, scaling: modalScaling, max: max});
     lazyLoad();
     placeBtns();
   });
 
   window.addEventListener('orientationchange', function() {
+    scaleModal();
     $(modalImg).scaleImages({lazy: true, scaling: modalScaling, max: max});
     lazyLoad();
     placeBtns();
