@@ -85,6 +85,19 @@
     });
   }
 
+//Preloading
+
+  function preLoad() {
+    var thisIndex = 0;
+    var nextIndex = thisIndex + 1;
+    var thisImg = img+':eq("'+thisIndex+'")';
+    var nextImg = img+':eq("'+nextIndex+'")';
+    var thisSrc = $(thisImg).attr('data-modalSrc');
+    var nextSrc = $(nextImg).attr('data-modalSrc');
+    $(thisImg).attr('src', thisSrc);
+    $(nextImg).attr('src', nextSrc);
+  }
+
 //Place slideshow control buttons
 
   function placeBtns() {
@@ -219,10 +232,16 @@
       }
       var modalSrc = $(modalImg).attr('data-modalSrc');
       $(modalImg).attr('src', modalSrc);
-      var preloadIndex = thisIndex + 2;
-      var preloadImg = img+':eq("'+preloadIndex+'")';
-      var preloadSrc = $(preloadImg).attr('data-modalSrc');
-      $(preloadImg).attr('src', preloadSrc);
+
+      function preloadNext(index) {
+        var preloadIndex = thisIndex + index;
+        var preloadImg = img+':eq("'+preloadIndex+'")';
+        var preloadSrc = $(preloadImg).attr('data-modalSrc');
+        $(preloadImg).attr('src', preloadSrc);
+      }
+      preloadNext(2);
+      preloadNext(3);
+
       $(modalImg).load(function(){
         $(this).scaleImages({lazy: true, scaling: modalScaling, max: max});
         $(modalImg).css('visibility', 'visible');
@@ -410,6 +429,7 @@
   $(document).ready(function() {
     prepPhotos();
     lazyLoad();
+    preLoad();
     $(img).css('visibility', 'visible');
   });
   $(window).load(function() {
