@@ -4,6 +4,8 @@
 
   var img = '#photos img';
   var imgModal = '#imgModal';
+  var loadingFA = '<i class="fa fa-circle-o-notch fa-spin"></i>';
+  var loader = '.fa-circle-o-notch';
   var modalImg = imgModal + ' img';
   var exitBtn = '.fa-times';
   var prevBtn = '.fa-chevron-left';
@@ -41,6 +43,8 @@
       if ($(window).width() <= 400) {
         $(this).attr('data-modalSrc', smSrc);
       } else if ($(window).width() > 400 && $(window).width() <= 750) {
+        $(this).attr('data-modalSrc', mdSrc);
+      } else if ($(window).width() > 750 && $(window).width() <= 1500 && window.devicePixelRatio === 1) {
         $(this).attr('data-modalSrc', mdSrc);
       } else {
         $(this).attr('data-modalSrc', lgSrc);
@@ -87,15 +91,13 @@
 
 //Preloading
 
-  function preLoad() {
-    var thisIndex = 0;
-    var nextIndex = thisIndex + 1;
+  function preLoad(index) {
+    var thisIndex = index;
     var thisImg = img+':eq("'+thisIndex+'")';
-    var nextImg = img+':eq("'+nextIndex+'")';
     var thisSrc = $(thisImg).attr('data-modalSrc');
-    var nextSrc = $(nextImg).attr('data-modalSrc');
+    var preloadImg = new Image;
+    preloadImg.src = thisSrc;
     $(thisImg).attr('src', thisSrc);
-    $(nextImg).attr('src', nextSrc);
   }
 
 //Place slideshow control buttons
@@ -150,6 +152,8 @@
         .css('align-items', 'center')
         .css('justify-content', 'center')
       ;
+      // $(imgModal).append(loadingFA);
+      // $(loader).css('color', btnHoverColor);
       $(this)
         .css('visibility', 'hidden')
         .clone()
@@ -169,6 +173,7 @@
       //Scale Image to Viewport
       scaleModal();
       $(modalImg).load(function(){
+        // $(loader).remove();
         $(this).scaleImages({lazy: true, scaling: modalScaling, max: max});
         $(this).css('visibility', 'visible');
       });
@@ -218,6 +223,8 @@
       }
       var nextImg = $(img+':eq("'+nextIndex+'")');
       $(modalImg).remove();
+      // $(imgModal).append(loadingFA);
+      // $(loader).css('color', btnHoverColor);
       $(nextImg)
         .css('visibility', 'hidden')
         .clone().appendTo(imgModal)
@@ -235,14 +242,17 @@
 
       function preloadNext(index) {
         var preloadIndex = thisIndex + index;
-        var preloadImg = img+':eq("'+preloadIndex+'")';
-        var preloadSrc = $(preloadImg).attr('data-modalSrc');
-        $(preloadImg).attr('src', preloadSrc);
+        var preloadSelector = img+':eq("'+preloadIndex+'")';
+        var preloadSrc = $(preloadSelector).attr('data-modalSrc');
+        var preloadImg = new Image;
+        preloadImg.src = preloadSrc;
+        $(preloadSelector).attr('src', preloadSrc);
       }
       preloadNext(2);
       preloadNext(3);
 
       $(modalImg).load(function(){
+        // $(loader).remove();
         $(this).scaleImages({lazy: true, scaling: modalScaling, max: max});
         $(modalImg).css('visibility', 'visible');
       });
@@ -429,7 +439,10 @@
   $(document).ready(function() {
     prepPhotos();
     lazyLoad();
-    preLoad();
+    setTimeout(function(){
+      preLoad(0);
+      preLoad(1);
+    }, 500);
     $(img).css('visibility', 'visible');
   });
   $(window).load(function() {
@@ -442,9 +455,7 @@
 //Handle Resizing and Orientation Changes
 
   $(window).bind('resize', function() {
-    console.log(modalScaling);
     scaleModal();
-    console.log(modalScaling);
     $(modalImg).scaleImages({lazy: true, scaling: modalScaling, max: max});
     lazyLoad();
     placeBtns();
