@@ -45,13 +45,24 @@ function pixelate() {
   });
 }
 
+function resizePixelate() {
+  $('canvas').remove();
+  clearTimeout( $('body').attr('data-pixelTimeout') );
+  console.log('this will fire in 1 second');
+  var pixelTimeout = setTimeout(function(){
+    pixelate();
+    console.log('fired');
+  }, 150);
+  $('body').attr('data-pixelTimeout', pixelTimeout);
+}
+
 // Pixel Canvas
 $(window).load(function() {
   pixelate();
 });
 $(window).bind("resize", function() {
-  pixelate();
+  resizePixelate();
 });
 window.addEventListener("orientationchange", function() {
-  pixelate();
+  resizePixelate();
 }, false);

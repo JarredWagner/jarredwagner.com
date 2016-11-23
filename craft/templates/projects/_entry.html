@@ -147,18 +147,4 @@
     {% endblock %}
 
     {% block scripts %}
-      <script>
-        function checkSrc() {
-          $(".img-responsive").each(function(){
-            var currentSrc = $(this)[0].currentSrc;
-            console.log(currentSrc);
-          });
-        }
-        $(document).ready(function(){
-          checkSrc();
-        });
-        $(window).resize(function(){
-          checkSrc();
-        });
-      </script>
     {% endblock %}
