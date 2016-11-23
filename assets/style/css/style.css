@@ -58,7 +58,7 @@
 /*Home*/
 
   header.home {
-    background: url(../img/darken.png), url(../img/jarred-md.jpg);
+    background: url(../img/darken.png), url(../../images/hero-md.jpg);
     background-size: auto, cover;
     background-position: 0 0, 50% 0;
     background-repeat: repeat, no-repeat;
@@ -346,8 +346,8 @@
         margin: 7px -15px 1rem -15px;
       }
 
-      header {
-        background: url(img/darken.png), url(img/jarred-xs.jpg);
+      header.home {
+        background: url(../img/darken.png), url(../../images/hero-xs.jpg);
         background-size: auto, cover;
         background-position: 0 0, 50% 0 ;
         background-repeat: repeat, no-repeat;
