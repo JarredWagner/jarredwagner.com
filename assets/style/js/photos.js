@@ -39,11 +39,11 @@
       var mdSrc = $(this).attr('src').replace('/_sm', '/_md');
       var lgSrc = $(this).attr('src').replace('/_sm', '');
       if ($(window).width() <= 400) {
-        $(this).attr('modal-src', smSrc);
+        $(this).attr('data-modalSrc', smSrc);
       } else if ($(window).width() > 400 && $(window).width() <= 750) {
-        $(this).attr('modal-src', mdSrc);
+        $(this).attr('data-modalSrc', mdSrc);
       } else {
-        $(this).attr('modal-src', lgSrc);
+        $(this).attr('data-modalSrc', lgSrc);
       }
       //Prep Lazy Load
       var src = $(this).attr('src');
@@ -144,8 +144,14 @@
         .removeClass('img-responsive')
       ;
       $(this).css('visibility', 'visible');
-      var modalSrc = $(modalImg).attr('modal-src');
+      var modalSrc = $(modalImg).attr('data-modalSrc');
       $(modalImg).attr('src', modalSrc);
+
+      var thisIndex = parseInt($(modalImg).attr('data-index'));
+      var nextIndex = thisIndex + 1;
+      var nextImg = img+':eq("'+nextIndex+'")';
+      var nextSrc = $(nextImg).attr('data-modalSrc');
+      $(nextImg).attr('src', nextSrc);
 
       //Scale Image to Viewport
       scaleModal();
@@ -211,8 +217,12 @@
         $(modalImg).attr('src', dataSrc);
         $(img+':eq("'+nextIndex+'")').attr('src', dataSrc).removeAttr('data-src');
       }
-      var modalSrc = $(modalImg).attr('modal-src');
+      var modalSrc = $(modalImg).attr('data-modalSrc');
       $(modalImg).attr('src', modalSrc);
+      var preloadIndex = thisIndex + 2;
+      var preloadImg = img+':eq("'+preloadIndex+'")';
+      var preloadSrc = $(preloadImg).attr('data-modalSrc');
+      $(preloadImg).attr('src', preloadSrc);
       $(modalImg).load(function(){
         $(this).scaleImages({lazy: true, scaling: modalScaling, max: max});
         $(modalImg).css('visibility', 'visible');
@@ -241,7 +251,7 @@
         var dataSrc = $(modalImg).attr('data-src');
         $(modalImg).attr('src', dataSrc).removeAttr('data-src');
       }
-      var modalSrc = $(modalImg).attr('modal-src');
+      var modalSrc = $(modalImg).attr('data-modalSrc');
       $(modalImg).attr('src', modalSrc);
       $(modalImg).load(function(){
         $(this).scaleImages({lazy: true, scaling: modalScaling, max: max});
