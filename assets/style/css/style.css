@@ -324,9 +324,9 @@
   footer.demo a {visibility: hidden;}
 
   footer.pixel {
-    background: #303030;
+    background: #282828;
     color: #fff;
-    padding: 3rem;
+    padding: 4.33rem;
   }
 
 /*Media Queries*/

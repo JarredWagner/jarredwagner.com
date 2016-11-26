@@ -32,26 +32,27 @@ $(window).load(function(){
 
 function pixelate() {
   $('header.project-entry').pixelCanvas({
-    divisor: 6,
-    opacity: 0.15
+    pixelSize: 6,
+    minOpacity: 0,
+    maxOpacity: 0.15
   });
   $('header.page').pixelCanvas({
-    divisor: 3,
-    opacity: 0.15
+    pixelSize: 3,
+    minOpacity: 0,
+    maxOpacity: 0.15
   });
   $('footer.pixel').pixelCanvas({
-    divisor: 4,
-    opacity: 0.15
+    pixelSize: 4,
+    minOpacity: 0,
+    maxOpacity: 0.15
   });
 }
 
 function resizePixelate() {
   $('canvas').remove();
   clearTimeout( $('body').attr('data-pixelTimeout') );
-  console.log('this will fire in 1 second');
   var pixelTimeout = setTimeout(function(){
     pixelate();
-    console.log('fired');
   }, 150);
   $('body').attr('data-pixelTimeout', pixelTimeout);
 }
