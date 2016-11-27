@@ -1,0 +1,1 @@
+$(window).load(function(){$(".home-text:eq(0)").animate({opacity:1}),setTimeout(function(){$(".home-text:eq(1), .home-text:eq(2)").animate({opacity:1})},1e3),setTimeout(function(){$(".home-text:eq(3), .home-text:eq(4)").animate({opacity:1})},2e3)});

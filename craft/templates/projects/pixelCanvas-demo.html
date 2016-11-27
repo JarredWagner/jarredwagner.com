@@ -1,0 +1,58 @@
+  {% extends "_layout.html" %}
+
+  {% block title %}pixelCanvas.js - Projects{% endblock %}
+
+  {% block styles %}
+    <style>
+      #demo-canvas {width: 100%; height: 66vh; background: #ea8440;}
+    </style>
+  {% endblock %}
+
+  {% block content %}
+
+    <div class="container">
+      <div id="demo-canvas"></div>
+    </div>
+
+  {% endblock %}
+
+  {% block scripts %}
+
+    <script src="{{siteUrl}}assets/js/jquery.pixelCanvas.js"></script>
+    <script>
+
+      function pixelate() {
+        $('#demo-canvas').pixelCanvas({
+          priority: 'horizontal',
+          pixelSize: 16,
+          minOpacity: 0.1,
+          maxOpacity: 0.15
+        });
+        $('footer.pixel').pixelCanvas({
+          pixelSize: 4,
+          maxOpacity: 0.15
+        });
+      }
+
+      function resizePixelate() {
+        $('canvas').remove();
+        clearTimeout( $('body').attr('data-pixelTimeout') );
+        var pixelTimeout = setTimeout(function(){
+          pixelate();
+        }, 150);
+        $('body').attr('data-pixelTimeout', pixelTimeout);
+      }
+
+      $(window).load(function() {
+        pixelate();
+      });
+      $(window).bind("resize", function() {
+        resizePixelate();
+      });
+      window.addEventListener("orientationchange", function() {
+        resizePixelate();
+      }, false);
+
+    </script>
+
+  {% endblock %}
