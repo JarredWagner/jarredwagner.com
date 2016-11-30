@@ -252,14 +252,17 @@
 
 /*Contact*/
 
-  .form-control {
+  input.form-control {
     font-size: 1rem;
     border-radius: 0;
-    padding: 1.33rem 0.66rem;
+    height: 3rem;
+    /*padding: 1.33rem 0.66rem;*/
   }
   textarea.form-control  {
     padding: 0.66rem;
     margin-bottom: 1rem;
+    font-size: 1rem;
+    height: 9rem;
   }
   .form-control:focus {
     border: solid 1px #666;
